@@ -101,5 +101,5 @@ During the in-class part of the course, the following topic will be covered.
 
 Exercises to do on your own, as post-course tasks.
 
-* **Exercises 3 and 4** (~2h).
-* **Additional tasks** of exercises 1 and 2 (~1h).
+* **Finish exercises 1 and 2**, including the "Additional Tasks" sections (~1h).
+* **Exercises 3 and 4**, including the "Additional Tasks" sections (~3h).
