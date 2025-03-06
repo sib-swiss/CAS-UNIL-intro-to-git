@@ -15,6 +15,7 @@ This one-day course provides an introduction to the open source
 * [Course slides](slides_intro_to_git.pdf)
 * [Exercises instructions](exercise_instructions.md)
 * [Exercises material](https://github.com/sib-swiss/CAS-UNIL-intro-to-git/raw/main/exercises.zip)
+* [Git command summary (cheat-sheet)](git_command_summary.pdf)
 
 ### Setting-up your environment
 
