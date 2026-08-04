@@ -1,36 +1,40 @@
 # Exercises - Introduction to Git
 
+<br>
+
 ## Before you start
 
-* :pencil:
-  **Exercise material setup:** download the `exercises.zip` archive file to
-  your local computer and unzip it. This will unpack a directory named
-  `exercises`, with all the data needed for the course exercises.
+### Material download and general instructions
 
-* :pencil2:
-  **Additional Tasks:** at the end of exercises, you will sometimes find a
+* **📚 Exercise material setup:** download the
+  [exercises.zip](ADD LINK.../exercises.zip)
+  archive file to your local computer and unzip it. This will unpack a
+  directory named `exercises`, with all the data needed for the course
+  exercises.
+
+* **📝 Additional Tasks:** at the end of exercises, you will sometimes find a
   section named **Additional Tasks**. These sections contain tasks to complete
-  **if you have the time and after having completed the main exercise**.
+  if you have the time, after having completed the main exercise.
   Additional tasks sections will not be corrected in class, but their solution
   is given in this document.
 
-* :white_check_mark:
-  **Exercise solutions:** all exercises and additional tasks section have
-  their solution embedded in this document. Solutions are hidden by default,
+* **✅ Exercise solutions:** all exercises and Additional Tasks sections have
+  their solutions embedded in this document. Solutions are hidden by default,
   but you can reveal them by clicking on them. Here is an example:
 
-  <details><summary><b>Solution (click to reveal)</b></summary>
-  :sparkles: This reveals the answer :sparkles:
+  <details><summary><b>Exercise solution (click to reveal)</b></summary>
+  ✨ This reveals the answer ✨
   </details>
 
   We encourage you to **not look at the solutions too quickly**, and try to
   solve the exercises without them. Remember that you can always ask the
   course teachers for help.
 
-* :fire:
-  **Tip:** if you are viewing these instructions on the GitHub web-interface,
-  you can display a table of content (outline) of this page by clicking on the
+* **🔥 Tip:** if you are viewing these instructions on the GitHub web interface,
+  you can display a table of contents (outline) of this page by clicking on the
   small icon that looks like a bulleted list near the top-right of this page.
+
+<br>
 
 ### Configuring Git
 
@@ -83,7 +87,7 @@ will be guided step-by-step on exactly what you need to do.
    directory's content using the following shell commands:
    ```sh
    cd exercise_1/test-project   # Enter the directory.
-   ls -l                        # List files present the directory.
+   ls -l *                      # List files present the directory.
    ```
    You should see that it contains files reminiscent of a simple scripting
    project, e.g. a data analysis pipeline (here written in Python).
@@ -123,7 +127,10 @@ will be guided step-by-step on exactly what you need to do.
 
 3. **Display the status of files** in the working tree (i.e. the `test-project`
    directory):
-   * Run the command `git status`.
+   * Run the command:
+     ```sh
+     git status
+     ```
    * :question:
      **Question:** what is the status of the files in your working directory?
 
@@ -265,7 +272,7 @@ create a new commit that adds the change we made.
    * Change the 3rd line of the file to:
      > Demo project for the Git course. This will be great!
    * Save your changes and close the file.
-   * Run **`git status`** - `README.md` should now be listed as modified:
+   * Run **`git status`**, the `README.md` should now be listed as modified:
       ```txt
       Changes not staged for commit:
           modified:   README.md
@@ -1194,8 +1201,8 @@ git status
 ### C) Pull changes from the remote
 
 In this exercise you are working on your project alone - no one else is pushing
-changes to your remote. Therefore, to simulate content being added to the
-remote, we will use a small trick: we will add a commit to our repo via the
+changes to your remote. To simulate content being added to the remote, we will
+therefore use a small trick: you will add a commit to our repo via the
 GitHub **web interface**.
 
 1. **Go to the home page** of your project on GitHub and click on the
