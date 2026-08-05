@@ -1,0 +1,18 @@
+version: "0.2"
+language: en-US
+ignorePaths:
+  - ToDo.md
+dictionaryDefinitions: []
+dictionaries: []
+words:
+  - adog
+  - alfredi
+  - Codeberg
+  - Mobula
+  - Moodle
+  - oneline
+  - Scamazone
+  - sibgit
+  - UNIL
+  - unstaging
+import: []
