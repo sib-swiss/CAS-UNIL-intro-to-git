@@ -85,12 +85,15 @@ will be guided step-by-step on exactly what you need to do.
 
 1. **Change directory** into `exercise_1/test-project` and list the
    directory's content using the following shell commands:
+
    ```sh
    cd exercise_1/test-project   # Enter the directory.
    ls -l *                      # List files present the directory.
    ```
+
    You should see that it contains files reminiscent of a simple scripting
    project, e.g. a data analysis pipeline (here written in Python).
+
    ```txt
      test-project
       ├── doc
@@ -103,19 +106,24 @@ will be guided step-by-step on exactly what you need to do.
           ├── tests.py
           └── tests.pyc
    ```
+
    <br>
 
 2. **Initialize a new Git repository** at the root of the `test-project`
    directory:
    * Create a new Git repo in the current working directory with the command:
+
      ```sh
      git init   # Initialize a new Git repository.
      ```
+
    * Initializing a new Git repo creates a **hidden `.git` directory**. You
      can view this directory by running the shell command:
+
      ```sh
      ls -la   # You should observe that a new ".git" hidden directory was created.
      ```
+
    * :fire:
      **Important:** the **`.git`** directory is where Git stores the entire
      history of your repository (as well as various settings). If you delete
@@ -128,9 +136,11 @@ will be guided step-by-step on exactly what you need to do.
 3. **Display the status of files** in the working tree (i.e. the `test-project`
    directory):
    * Run the command:
+
      ```sh
      git status
      ```
+
    * :question:
      **Question:** what is the status of the files in your working directory?
 
@@ -186,6 +196,7 @@ will be guided step-by-step on exactly what you need to do.
 
    There are several ways we can stage all the requested files:
    * By staging individual files:
+
      ```sh
       git add README.md
       git add script.py
@@ -194,10 +205,12 @@ will be guided step-by-step on exactly what you need to do.
       git add tests/output.csv
 
       # Note that we can also stage all 3 files in a single command:
-      git add README.md script.py doc/ tests/tests.py tests/output.csv
+      git add README.md script.py doc/ tests/tests.py tests/output.csv 
      ```
+
    * By staging all files in the directory, then removing the `*.pyc` files
      from the staging area (Git index):
+
      ```sh
      # Stage all files in the directory.
      git add --all   # Alternative: git add .
@@ -206,6 +219,7 @@ will be guided step-by-step on exactly what you need to do.
      # Do not forget the --cached option, otherwise files are deleted on disk!
      git rm --cached script.pyc tests/tests.pyc 
      ```
+
      Note that in this specific case we can not use `git restore --staged` to
      remove files from the Git index because we do not have any commits yet
      in the repository (and `git restore --staged` needs a commit to restore
@@ -226,6 +240,7 @@ will be guided step-by-step on exactly what you need to do.
      * **`git log`**: to display the repository's history. At this point you
        should have a single commit, that looks like the following (your exact
        values for commit hash, date, etc. will differ):
+
        ```txt
        commit a0da6303e9d6dfc34986f959a076721e153f382d (HEAD -> main)
        Author: Your Name <your.email@example.org>
@@ -233,6 +248,7 @@ will be guided step-by-step on exactly what you need to do.
 
            Initial commit for test project
        ```
+
      * **`git show`**: to have a look at the content of your commit.  
      * :pushpin:
        **Note:** when the amount of text to be printed by `git show` exceeds one
@@ -273,6 +289,7 @@ create a new commit that adds the change we made.
      > Demo project for the Git course. This will be great!
    * Save your changes and close the file.
    * Run **`git status`**, the `README.md` should now be listed as modified:
+
       ```txt
       Changes not staged for commit:
           modified:   README.md
@@ -281,21 +298,26 @@ create a new commit that adds the change we made.
           script.pyc
           tests/
       ```
+
    <br>
 
 2. **Display the changes** to files in the working tree:
    * Run the command **`git diff`**, which displays the difference in tracked
      files between the working tree and the Git index (staging area).
+
      ```sh
      git diff
      git diff README.md  # Gives the same result, as only README.md was modified.
      ```
+
    * It will show that `README.md` has one line removed (shown in red, prefixed
      with **`-`**), and one line added (shown in green, prefixed with **`+`**).
+
      ```diff
      -Demo project for the Git course.
      +Demo project for the Git course. This will be great!
      ```
+
    <br>
 
 3. **Commit the changes** you just made:
@@ -365,6 +387,7 @@ to **permanently ignore** them, so that they stop being listed as _untracked_.
    * Make a new commit with commit message `Add *.pyc to ignore list`.
      At the end of this step, your working tree should now be "clean": when you
      run `git status`, the output should be:
+
       ```txt
         On branch main
         nothing to commit, working tree clean
@@ -391,9 +414,9 @@ to **permanently ignore** them, so that they stop being listed as _untracked_.
    each command:
 
     ```sh
-    git log                                     # Prints the full commit message along with author and date.
-    git log --pretty=oneline                    # 1 commit per line. Full commit hash/ID (checksum).
-    git log --oneline                           # 1 commit per line. Abbreviated commit hash/ID.
+    git log                   # Prints the full commit message along with author and date.
+    git log --pretty=oneline  # One commit per line. Full commit hash/ID (checksum).
+    git log --oneline         # One commit per line. Abbreviated commit hash/ID.
     git log --all --decorate --oneline --graph  # Shows commits for all branches.
     ```
 
@@ -414,11 +437,13 @@ to **permanently ignore** them, so that they stop being listed as _untracked_.
 
     * Test your new shortcut by typing: `git adog`.
     * Your commit history should look like this (commit ID values will differ):
+
       ```txt
       * 81d03aa (HEAD -> main) Add *.pyc to ignore list
       * 029a389 Make README file more cheerful
       * da59f94 Initial commit for test project
       ```
+
     * :fire:
       **Tip:** to list your Git aliases, use: `git config --list | grep ^alias`
 
@@ -659,11 +684,13 @@ would like to delete it from both our repo and working tree.
 * Delete the file with **`git rm`**.
 * Run `git status`: you should see that the was was deleted, and that this
   deletion is already stage.
+
   ```txt
   On branch main
   Changes to be committed:
     deleted:    tests/output.csv
   ```
+
 * Make a new commit that removes this file from the repo. You can use the
   commit message `"Remove test output"`
 
@@ -908,9 +935,16 @@ Here is what you should do:
 1. Work in a **new branch** named `dev`.  
 
 2. **Make a commit** that adds the following 2 references at the end of the
-   list in the HTML page:  
-   > `<li><a href="https://www.manning.com/books/learn-git-in-a-month-of-lunches">Learn git in a month of lunches</a></li>`  
-   > `<li><a href="https://www.amazon.com/Git-Porch-Willie-Crawford-2006-02-01/dp/B01K95YGYG">Git Porch</a></li>`
+   list in the HTML page:
+
+   ```txt
+    <li><a href="https://www.manning.com/books/learn-git-in-a-month-of-lunches">
+      Learn git in a month of lunches
+    </a></li>
+    <li><a href="https://www.amazon.com/Git-Porch-Willie-Crawford-2006-02-01/dp/B01K95YGYG">
+      Git Porch
+    </a></li>
+   ```
 
     * Use **`git diff`** and **`git diff --cached`** to look at your edits in
       the HTML file, before and after staging them.
@@ -1510,6 +1544,7 @@ into the [Awesome Animal Awareness website (GitHub)](https://sibgit.github.io).
        you have to indicate an "upstream" remote branch for the branch you are
        pushing.  
      * This is done by using the `-u / --set-upstream` option of `git push`:
+
         ```sh
          git push --set-upstream origin <branch you want to push>
 
