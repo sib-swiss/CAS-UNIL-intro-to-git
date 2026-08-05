@@ -11,5 +11,11 @@
   "MD013": {
     "code_block_line_length": 100
   },
-  "MD029": false
+  "MD028": false,
+  "MD049": {
+    "style": "underscore"
+  },
+  "MD050": {
+    "style": "asterisk"
+  }
 }
