@@ -12,7 +12,7 @@
   directory named `exercises`, with all the data needed for the course
   exercises.
 
-* **📝 Additional Tasks:** at the end of most exercises, you will find one
+* **🔮 Additional Tasks:** at the end of most exercises, you will find one
   or more sections named **Additional Task**. These contain tasks to complete
   **if you have the time** and **after having completed the main exercise**.
   Additional task sections will not be corrected in class, but their solutions
@@ -154,8 +154,8 @@ will be guided step-by-step on exactly what you need to do.
 
    **❓ Question:** what is the status of the files in your working directory ?
 
-    <br>
     <details><summary><b>✅ Solution</b></summary>
+    <br>
 
     Running `git status`, we see - as expected at this point - that all files
     are **untracked**.
@@ -204,8 +204,8 @@ will be guided step-by-step on exactly what you need to do.
           tests/tests.pyc
       ```
 
-   <br>
    <details><summary><b>✅ Solution</b></summary>
+   <br>
 
    There are several ways we can stage all the requested files:
 
@@ -287,8 +287,8 @@ will be guided step-by-step on exactly what you need to do.
    **❓ Question:** why are the details of the `doc/user-guide.pdf` file not
    displayed by `git show` ?
 
-    <br>
     <details><summary><b>✅ Solution</b></summary>
+    <br>
 
     Looking at the output of **`git show`**, we can see that the newly added
     content for the file `doc/user-guide.pdf` is not displayed - unlike for
@@ -358,8 +358,8 @@ create a new commit that adds the change we made.
 
    * Commit your changes with the message `"Make README file more cheerful"`.
 
-    <br>
     <details><summary><b>✅ Solution</b></summary>
+    <br>
 
       ```sh
       git add README.md
@@ -418,8 +418,8 @@ to **permanently ignore** them, so that they stop being listed as _untracked_.
       nothing to commit, working tree clean
       ```
 
-   <br>
    <details><summary><b>✅ Solution</b></summary>
+   <br>
 
      ```sh
      # Stage the .gitignore file.
@@ -474,7 +474,7 @@ to **permanently ignore** them, so that they stop being listed as _untracked_.
 
 <br>
 
-### Additional Task - Remove content from the Git index (unstaging)
+### 🔮 Additional task - Remove content from the Git index (unstaging)
 
 **🔨 Setup:** for this task, we will need an additional file named
 `personal_notes.md`, as well as a change in the `script.py` file. Let's
@@ -549,7 +549,7 @@ Untracked files:
 
 <br>
 
-### Additional Task - Staging shortcuts: `git add --update` vs. `git add --all`
+### 🔮 Additional task - Staging shortcuts: `--update` vs. `--all`
 
 > **🦉 Reminder:**
 >
@@ -583,8 +583,8 @@ modified file `script.py`.
 
 * Run `git restore --staged script.py` to unstage the changes to `script.py`.
 
-<br>
 <details><summary><b>✅ Solution</b></summary>
+<br>
 
 The difference between `git add --update` and `git add --all` is that
 **`--update`** only adds files that are already tracked in Git, while
@@ -608,7 +608,7 @@ git restore --staged script.py
 </details>
 <br>
 
-### Additional Task - Ignoring files with `.git/info/exclude`
+### 🔮 Additional task - Ignoring files with `.git/info/exclude`
 
 `personal_notes.md` is a file that we never intend to track and share with
 other people. Therefore we would like to **ignore** it. However, since this
@@ -633,8 +633,8 @@ local Git repo, and not by everyone else.
 * Run `git status` again. The file `personal_notes.md` should no longer
   be listed as _untracked_.
 
-<br>
 <details><summary><b>✅ Solution</b></summary>
+<br>
 
 ```sh
   # Add 'personal_notes.md' to the "exclude" file:
@@ -648,7 +648,7 @@ local Git repo, and not by everyone else.
 </details>
 <br>
 
-### Additional Task - Resetting changes with `git restore`
+### 🔮 Additional task - Resetting changes with `git restore`
 
 If you run **`git diff`**, you will see that we currently have an
 uncommitted change in the `script.py` file:
@@ -679,8 +679,8 @@ like to **reset the content of `script.py`** to its previous version
 > overwrites uncommitted modifications in your files. Use this command
 > carefully to avoid losing work by mistake.
 
-<br>
 <details><summary><b>✅ Solution</b></summary>
+<br>
 
 **`git restore script.py`** overwrites the version of `script.py` present in
 the working tree with the version from the Git index.
@@ -695,7 +695,7 @@ git status              # No more uncommitted changes.
 </details>
 <br>
 
-### Additional Task - Remove a file from a repository with `git rm`
+### 🔮 Additional task - Remove a file from a repository with `git rm`
 
 Currently the file `tests/output.csv` is being tracked in our Git repo.
 However, all things considered, this file is not really needed, and we now
@@ -717,8 +717,8 @@ would like to delete it from both our repo and working tree.
 > **🦉 Reminder:** even though we are deleting `output.csv`, a copy of it
 > will remain in the history of our repository.
 
-<br>
 <details><summary><b>✅ Solution</b></summary>
+<br>
 
 ```sh
 git rm tests/output.csv
@@ -736,7 +736,7 @@ git rm --cached tests/output.csv
 </details>
 <br>
 
-### Additional Task - Retrieve files with `git restore --source`
+### 🔮 Additional task - Retrieve files with `git restore --source`
 
 Let's imagine that, for some reason, we want to retrieve the file
 `tests/output.csv` from our commit history, specifically from our
@@ -752,8 +752,8 @@ git restore --source <commit ref> tests/output.csv
 
 > **🔥 Tip:** you can use `HEAD~1` to refer to the second-to-last commit.
 
-<br>
 <details><summary><b>✅ Solution</b></summary>
+<br>
 
 The **`--source`** argument is used to indicate from which commit the file
 should be restored. You can pass a commit ID (hash), or use a reference to
@@ -793,8 +793,8 @@ Let's get started:
 * How many branches are present in the repo ? How are they named ?
 * Are there any uncommitted changes ?
 
-<br>
 <details><summary><b>✅ Solution</b></summary>
+<br>
 
 ```sh
 cd exercise_2/
@@ -876,8 +876,8 @@ working as expected.
 Enjoy your Git reference page. You can have a look at the different links if
 you want to learn everything about Git!
 
-<br>
 <details><summary><b>✅ Solution</b></summary>
+<br>
 
 1. Check if the working tree is clean, and see uncommitted changes.
 
@@ -959,7 +959,7 @@ you want to learn everything about Git!
 </details>
 <br>
 
-### Additional Task - Add an image and new links
+### 🔮 Additional task - Add an image and new links
 
 To further improve our Git reference web page, you are now tasked with adding
 a couple of new book links to the page.
@@ -1030,8 +1030,8 @@ a couple of new book links to the page.
      git log --all --decorate --oneline --graph
     ```
 
-<br>
 <details><summary><b>✅ Solution</b></summary>
+<br>
 
 Add new links to the web page:
 
@@ -1133,8 +1133,8 @@ can:
    cat README.md
    ```
 
-<br>
 <details><summary><b>✅ Solution</b></summary>
+<br>
 
 After having created the new project on GitHub, clone the repository.
 
@@ -1262,8 +1262,8 @@ to the remote.
    page on GitHub: you will see that the updated version of the `README.md`
    file is displayed.
 
-<br>
 <details><summary><b>✅ Solution</b></summary>
+<br>
 
 ```sh
 # 1-2. Modify README.md (using any text editor) and visualize the changes.
@@ -1406,8 +1406,8 @@ pulling changes from a remote.
   Make sure to be on the correct branch (the one to update) before running
   `git pull`.
 
-<br>
 <details><summary><b>✅ Solution</b></summary>
+<br>
 
 ```sh
 # Download/retrieve new content from the remote
@@ -1427,7 +1427,7 @@ cat README.md
 </details>
 <br>
 
-### Additional Task - Push a new branch to a remote
+### 🔮 Additional task - Push a new branch to a remote
 
 1. **Create a new branch named `add-more-content`** and switch to it.
 
@@ -1496,8 +1496,8 @@ cat README.md
    interface. This is done using the **drop-down menu** near the top of the
    page.
 
-<br>
 <details><summary><b>✅ Solution</b></summary>
+<br>
 
 ```sh
 # 1. Create a new branch and switch to it.
@@ -1515,7 +1515,7 @@ git push
 </details>
 <br>
 
-### Additional Task - Branch cleanup
+### 🔮 Additional task - Branch cleanup
 
 Now that our new content is ready, we can **merge it** into the `main` branch,
 and then **delete the `add-more-content` branch** on our local and remote
@@ -1528,8 +1528,8 @@ Perform the following tasks:
 3. **Delete** the branch `add-more-content` from your local repo.
 4. **Delete** the branch `add-more-content` from the remote.
 
-<br>
 <details><summary><b>✅ Solution</b></summary>
+<br>
 
 ```sh
 # 1. Merge 'add-more-content' into 'main'.
@@ -1617,8 +1617,8 @@ into the [Awesome Animal Awareness website (GitHub)](https://sibgit.github.io).
    >  git push -u origin sunfish-dev
    > ```
 
-<br>
 <details><summary><b>✅ Solution</b></summary>
+<br>
 
 The solution is here exemplified with the **manta ray**. Simply replace `manta`
 with your animal name.
@@ -1710,8 +1710,8 @@ for the _manta ray_):
 
 **Push these new commits** to the remote on GitHub.
 
-<br>
 <details><summary><b>✅ Solution</b></summary>
+<br>
 
 The solution is here exemplified with the **manta ray**. Simply replace `manta`
 with your animal name.
@@ -1775,8 +1775,8 @@ To **open a Pull Request**:
 After your Pull Request has been merged, you can update your local repository's
 `main` branch with the newly added commits.
 
-<br>
 <details><summary><b>✅ Solution</b></summary>
+<br>
 
 ```sh
 # Update the `main` branch with the changes.
@@ -1787,7 +1787,7 @@ git pull
 </details>
 <br>
 
-### Additional Task - Repo cleanup
+### 🔮 Additional task - Repo cleanup
 
 After your animal's branch has been merged into the `main` branch of the
 project, you can now delete it from your local repo and from the remote.
@@ -1823,8 +1823,8 @@ project, you can now delete it from your local repo and from the remote.
    Alternatively, branches can also be deleted via the web interface of
    GitHub/GitLab.
 
-<br>
 <details><summary><b>✅ Solution</b></summary>
+<br>
 
 ```sh
 # 1. Update your local repo.
