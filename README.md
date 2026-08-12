@@ -3,7 +3,7 @@
 Welcome to the home page of the **Introduction to Git** course of the
 **University of Lausanne CAS in data stewardship**.
 
-This one-day course provides an introduction to the open source
+This course provides an introduction to the open source
 **[Git version control](https://git-scm.com)** system.
 
 <br>
