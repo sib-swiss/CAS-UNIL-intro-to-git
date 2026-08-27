@@ -136,7 +136,7 @@ will be guided step-by-step on exactly what you need to do.
    > **will be lost**. You can do this if e.g. you want to start the exercise
    > from scratch again.
 
-   > **✨ Note:** creating a new repo locally with `git init` is arguably not
+   > **✨ Note:** creating a new repo locally with `git init` is arguably _not_
    > the most frequent way of starting a new repository. Instead, people will
    > often first create a project on a Git hosting service
    > ([GitHub](https://github.com/), [GitLab](https://gitlab.com),
@@ -182,11 +182,9 @@ will be guided step-by-step on exactly what you need to do.
    `tests/output.csv` and `tests/tests.py` (i.e. all files except the `*.pyc`
    files - these are Python cache files we don't want to track).
 
-   > **🦉 Reminders:** _staging_ a file is a synonym of
-   > _adding to the Git index_.
-   >
-   > The command to stage files is: `git add`. For instance,
-   > `git add README.md` will stage the file `README.md`.
+   > **🦉 Reminder:** _staging_ a file is a synonym of
+   > _adding to the Git index_. The command to stage files is: `git add`.
+   > For instance, `git add README.md` will stage the file `README.md`.
 
    To make sure that you have staged the files correctly, run the command
    **`git status`**. The output of the command should look like this:
@@ -350,8 +348,8 @@ create a new commit that adds the change we made.
 
      > **🔥 Tip:** to stage all modified files at once, you can use the shortcut
      > **`git add -u`**. Here it does not make a lot of difference as there is
-     > only 1 modified file, but if there are many of them, this command can be
-     > useful.
+     > only 1 modified file, but if there are many of them, this command is a
+     > useful shortcut.
 
    * Run `git status` again: you should see that the `README.md` file is now
      listed under `Changes to be committed:` (in green).
@@ -409,8 +407,8 @@ to **permanently ignore** them, so that they stop being listed as _untracked_.
    users of the repository, this file should be added to the repo.
 
    * Stage the `.gitignore` file.
-   * Make a new commit with the commit message `Add *.pyc to ignore list`.
-     At the end of this step, your working tree should now be "clean": when you
+   * Make a new commit with the commit message `Add *.pyc to gitignore list`.
+     At the end of this step, your working tree should now be clean: when you
      run `git status`, the output should be:
 
       ```txt
@@ -426,7 +424,7 @@ to **permanently ignore** them, so that they stop being listed as _untracked_.
      git add .gitignore
 
      # Make a new commit.
-     git commit -m "Add *.pyc to ignore list"
+     git commit -m "Add *.pyc to gitignore list"
 
      # The working tree is now clean.
      git status  # -> nothing to commit, working tree clean
@@ -465,7 +463,7 @@ to **permanently ignore** them, so that they stop being listed as _untracked_.
     * Your commit history should look like this (commit ID values will differ):
 
       ```txt
-      * 81d03aa (HEAD -> main) Add *.pyc to ignore list
+      * 81d03aa (HEAD -> main) Add *.pyc to gitignore list
       * 029a389 Make README file more cheerful
       * da59f94 Initial commit for test project
       ```
@@ -1092,8 +1090,8 @@ git branch -d dev
 
 <br>
 
-Good work so far! Your Git skills are improving and it's now time to start
-working with **remote repositories**.
+Looking good so far! It's now time we add a new moving piece: working
+with **remote repositories**.
 
 In this exercise, we will work on a small - and incomplete - cheat-sheet for
 the **[Markdown language](https://www.markdownguide.org) syntax**. As you
@@ -1103,6 +1101,17 @@ can:
 
 * Have a backup of our work on GitHub.
 * Make it available to everyone out there.
+
+> **🔥 Important:**
+>
+> * **Before you start** this exercise, make sure you created a
+>   **personal access token (PAT)** on GitHub. This will be needed to push
+>   commits to your repo on GitHub. A demo on how to create a PAT will be made
+>   in the class (if this has not been done yet, please kindly remind the
+>   teacher to do so 😇 - thank you).
+>
+>   If you are doing the exercise on your own, instructions on how to create
+>   a PAT can also be found in the course slides.
 
 <br>
 
@@ -1124,8 +1133,27 @@ can:
 2. On your computer, enter the directory `exercise_3/` and
    **clone your new repository**.
 
-3. **Enter the directory** you just cloned: you should see that all it contains
-   is a `README.md` file.
+    ```sh
+     # Note: replace <user name> with your GitHub user name.
+     git clone https://github.com/<user name>/test-markdown-guide.git
+    ```
+
+   This command **`git clone`** downloads a copy of the entire remote repo
+   to your computer, and also sets the repo of GitHub as the **remote** of
+   your local repo. By default, this remote is named **`origin`** - this is
+   why e.g. the pointer to the `main` branch on the remote is named
+   `origin/main`.
+
+3. **Enter the directory** you just cloned and list its content:
+
+    ```sh
+     cd test-markdown-guide
+     ls -l
+    ```
+
+   You should see that all it contains is a `README.md` file. This file was
+   automatically added by GitHub because we asked it to do so when configuring
+   the new repo.
 
 4. **Display the content** of the README file with the command:
 
@@ -1133,24 +1161,6 @@ can:
    cat README.md
    ```
 
-<details><summary><b>✅ Solution</b></summary>
-<br>
-
-After having created the new project on GitHub, clone the repository.
-
-```sh
-# Note: replace <user name> with your GitHub user name.
-git clone https://github.com/<user name>/test-markdown-guide.git
-
-# Enter the directory and list its content: there is only 1 file, README.md.
-cd test-markdown-guide
-ls -l
-
-# Display the content of the README file.
-cat README.md
-```
-
-</details>
 <br>
 
 ### Part B - Push commits to the remote
@@ -1172,15 +1182,27 @@ to the remote.
     are automatically rendered by Git hosting services (e.g. GitHub or GitLab).
     ```
 
-    <br>
-
 2. **Run `git diff` and `git status`** to display changes you made to
    `README.md`.
 
 3. **Make a new commit** with your changes (use a meaningful commit message).
 
+   <details><summary><b>✅ Solution</b></summary>
+    <br>
+
+    ```sh
+     # Stage the README fine, then create a new commit.
+     git add README.md
+     git commit -m "Update markdown guide title"
+     
+     # Alternatively, we could also stage and commit in a single command.
+     git commit -m "Update markdown guide title" README.md
+    ```
+
+    </details>
+
 4. **Display the history** of your repo with the command (or use
-   the **`git adog`** alias, if you created it):
+   the `git adog` alias, if you created it):
 
     ```sh
     git log --all --decorate --oneline --graph
@@ -1193,7 +1215,7 @@ to the remote.
     * 88f9dea (origin/main, origin/HEAD) Initial commit
     ```
 
-   What you should pay attention to is the respective positions of the
+   What you should pay attention to, is the respective positions of the
    **`main`** and **`origin/main`** branches:
 
    * **`main`** (in green) shows the position of the `main` branch in
@@ -1214,14 +1236,19 @@ to the remote.
    <br>
 
    In this situation, the local `main` branch is said to be **ahead** of the
-   remote. In other words, the new commit we just made (`65efd2c`) is only
-   present on our local computer: if we lost access to our computer just now
-   (e.g. it gets stolen while we enjoy one too many beers at the bar), we would
-   have permanently lost the work we did in that last commit.
+   remote: the new commit we just made (`65efd2c`) is only present on our
+   local computer. If we lost access to our computer just now (e.g. it gets
+   stolen while we enjoy one too many beers at the bar - true story), we would
+   permanently lose the work we did in that last commit.
 
-   > **🔥 Tip:** running the command **`git status`** also warns us about the
-   > discrepancy between `main` and `origin/main` - see the 2nd line of the
-   > output below:
+   > **🔥 Tip:** running the command:
+   >
+   > ```sh
+   > git status
+   > ```
+   >
+   > also warns us about the discrepancy between `main` and `origin/main` -
+   > see the 2nd line of the output below:
    >
    > ```txt
    > On branch main
@@ -1233,9 +1260,14 @@ to the remote.
 
     <br>
 
-5. **Push your changes on `main` to the remote**, then display the history of
-   your repo again. You should now see that both `main` and `origin/main` point
-   to the latest commit.
+5. **Push your changes on `main` to the remote** with the command:
+
+    ```sh
+    git push
+    ```
+
+   Then display the history of your repo again. You should now see that both
+   `main` and `origin/main` point to the latest commit.
 
     ```txt
     * 65efd2c (HEAD -> main, origin/main, origin/HEAD) Update markdown guide title
@@ -1262,39 +1294,13 @@ to the remote.
    page on GitHub: you will see that the updated version of the `README.md`
    file is displayed.
 
-<details><summary><b>✅ Solution</b></summary>
-<br>
-
-```sh
-# 1-2. Modify README.md (using any text editor) and visualize the changes.
-git status
-git diff
-
-# 3. Commit the changes and visualize the repo's history.
-git add README.md
-git commit -m "Update markdown guide title"
-# Alternatively, we could also stage and commit in a single command.
-git commit -m "Update markdown guide title" README.md
-
-# 4. Display history of the Git repo.
-git log --all --decorate --oneline --graph   # Or 'git adog'.
-git status
-
-# 5. Push the new commit on `main` to the remote.
-git push
-# The remote origin/main is now up to date with the local `main` branch.
-git log --all --decorate --oneline --graph
-git status
-```
-
-</details>
 <br>
 
 ### Part C - Pull changes from the remote
 
 In this exercise you are working on your project alone - no one else is pushing
 changes to your remote. To simulate content being added to the remote, we will
-therefore use a small trick: you will add a commit to our repo via the
+therefore use a small trick: you will add a commit to your repo via the
 GitHub **web interface**.
 
 1. **Go to the home page** of your project on GitHub and click on the
@@ -1332,8 +1338,8 @@ GitHub **web interface**.
     ##### This is a level 5 title...
     ```
 
-   Then click on the green **"Commit changes..."** button and commit your
-   changes to the `main` branch with the commit message:
+   Then click on the **"Commit changes..."** button to create a new commit on
+   the `main` branch with the commit message:
 
    > Add bold, italic and titles to markdown guide
 
@@ -1344,13 +1350,27 @@ GitHub **web interface**.
 
 3. **Sync the local and remote repos.**
 
-   At this point, the new changes are **only present on the remote**. So let's
-   sync our local copy of the repo with the new content from the remote.
+   At this point, the new changes are **only present on the remote**. To
+   convince yourself, you can try to run:
 
-   Run **`git fetch`:** this retrieves (downloads) all new content from the
-   remote to our local repo. However, it will _not_ update the local `main`
-   branch. To verify this, display your repo history, which should look like
-   this:
+   ```sh
+   cat README.md
+   ```
+
+   You will see that your local README's content has not been updated (because
+   Git does not automatically sync a local and remote repo - it's a manual
+   operation).
+
+   Let's now **sync our local repo** with the new content from the remote. Run
+   the command:
+
+   ```sh
+   git fetch
+   ```
+
+   This retrieves (downloads) all new content from the remote to our local
+   repo. However, it will _not_ update the local `main` branch. To verify
+   this, display your repo history, which should look like this:
 
     ```txt
     * efe768e (origin/main, origin/HEAD) Add bold, italic and titles to markdown guide
@@ -1368,7 +1388,7 @@ GitHub **web interface**.
    > (`65efd2c`) - the new commit was _not_ merged into the local `main`.
    >
    > You can try to run the command `cat README.md` to display the content of
-   > the README file: you will see that it does _not_ contain the new text
+   > the README file: you will see that it does _not_ yet contain the new text
    > that we added on GitHub.
 
    <br>
@@ -1382,12 +1402,12 @@ GitHub **web interface**.
     * 88f9dea Initial commit
     ```
 
-   > **✨ Notes:**
-   > * The local `main` is now pointing to the same commit as `origin/main`.
-   > * At this point, our local and remote repositories are once again
-   >   completely in sync.
-   > * If you run `cat README.md`, you will see that the README file now
-   >   contains the updates we made on GitHub.
+   As you can see, the local `main` is now pointing to the same commit as
+   `origin/main`. At this point, our local and remote repositories are
+   completely in sync.
+
+   If you run `cat README.md` again, you will see that the README file now
+   contains the updates we made via the GitHub web interface.
 
    <br>
 
@@ -1410,8 +1430,7 @@ pulling changes from a remote.
 <br>
 
 ```sh
-# Download/retrieve new content from the remote
-# (but do not update the local branch).
+# Download/retrieve new content from the remote (does not update the local branch).
 git fetch
 git log --all --decorate --oneline --graph
 git status
@@ -1558,8 +1577,8 @@ GitHub.
 
 <br>
 
-Congratulations! Your improving Git skills have not gone unnoticed: you are
-now hired by our agile startup to work on the
+Congratulations! Your newly-acquired Git skills have not gone unnoticed - and
+you have now been hired by our agile startup to work on the
 **Awesome Animal Awareness Project**!
 
 Your mission - should you choose to accept it - is to help us build a new
@@ -1572,15 +1591,16 @@ into the [Awesome Animal Awareness website (GitHub)](https://sibgit.github.io).
 
 > **🔥 Important:**
 >
-> * **Before you start**, make sure you created a
->   **personal access token (PAT)** on GitHub. This will be needed in order to
->   allow you to push changes to GitHub. Please refer to the course slides for
->   instructions on how to create the token (a demo might also be made in the
->   class before the exercise).
 > * To know **which animal you should work on**, please refer to the shared
 >   **online document** (link sent by email before the course).
 > * Should the animal you are assigned to **not be awesome enough for you**,
 >   feel free to add your own animal to the list 🦩!
+> * If not already done earlier, please create a GitHub
+>   **personal access token (PAT)**. This will be needed to push commits to
+>   GitHub. A demo on how to create a PAT will be made in the class (if this
+>   has not been done yet, please kindly remind the teacher to do so 😇 -
+>   thank you). If you are doing the exercise on your own, instructions on how
+>   to create a PAT can also be found in the course slides.
 
 <br>
 
@@ -1602,9 +1622,10 @@ into the [Awesome Animal Awareness website (GitHub)](https://sibgit.github.io).
    Branch name examples: `tiger-dev`, `yeti-dev`, `sunfish-dev`,
    `pallas-cat-dev`, ...
 
-   > **🎯 Hint:** when pushing a local branch to a remote
-   > **for the first time**, you have to indicate an "upstream" remote branch
-   > for the branch you are pushing.
+   > **🎯 Hint:**
+   >
+   > When pushing a local branch to a remote **for the first time**, you have
+   > to indicate an "upstream" remote branch for the branch you are pushing.
    >
    > This is done by using the `-u`/`--set-upstream` option of `git push`:
    >
@@ -1641,10 +1662,10 @@ git push -u origin manta-dev
 ### Part B - Add content for your awesome animal
 
 You can now make edits to the webpage of your animal. For this, please make
-sure that the **active branch** is your **personal branch** (and not `main`!).
-If it's not the case, then **switch to your personal branch**.
+sure that the **active branch** is your **personal branch** (and not
+**`main`**!). If it's not the case, then **switch to your personal branch**.
 
-Open the file corresponding to the local version of your animal's webpage in
+Open the file corresponding to the local version of your animal's page in
 your browser (e.g. if your animal is the manta ray, the file to open is
 `manta_ray.html`). At this point, you should see that it already contains the
 scaffold (structure) of the page, but it's missing content.
@@ -1657,9 +1678,11 @@ Your task is now to populate the following fields/topics for your animal:
 * Diet, behavior and social organization (whatever is most relevant)
 * What makes this animal awesome
 
-> **🔥 Important:** the edits for each of the above fields should be part of
-> a separate commit on your personal branch. You should thus end up with
-> **5 new commits** on your personal branch.
+> **🔥 Important:**
+>
+> The edits for each of the above fields should be part of a separate commit
+> on your personal branch. You should thus end up with **5 new commits** on
+> your personal branch.
 
 For each of the above fields/topics, perform the following:
 
@@ -1680,6 +1703,7 @@ For each of the above fields/topics, perform the following:
    * Find and download a picture of your animal from the web, add the image
      to the project repo (in the `img/` directory), and insert the file name
      into the HTML file: `<img src="img/manta_ray.jpg">`.
+
      > **🔥 Important:** make sure to add the image file to your commit!
 
 3. After you are done editing a field, **save your changes and refresh** the
@@ -1687,18 +1711,23 @@ For each of the above fields/topics, perform the following:
 
 4. When you are happy with the result, **create a new commit** with the
    changes.
-   * Please give a **meaningful commit message** to your commits. E.g., if you
+   * Please give a **meaningful commit message** to your commits. If you
      added the animal name for the Manta ray, a good commit message would be:
+
      > Manta ray: add species common and binomial name
+
    * As already mentioned earlier, make sure to create a **separate commit**
      for each field/topic that you have to populate.
+
+<br>
 
 > **🎯 Hint:** if you want to see an example of a completed HTML page, you can
 > have a look at the `manta_ray.html` file.
 
+<br>
+
 After you populated all topics, you should have **5 new commits** on your
-personal branch, which should look something like this (here exemplified
-for the _manta ray_):
+personal branch, which should look something like this:
 
 ```txt
 * 1c8aa2e manta-ray: add an awesome point about the species
@@ -1769,8 +1798,8 @@ To **open a Pull Request**:
    [Awesome Animal Awareness website (GitHub)](https://sibgit.github.io).
    **Well done!** 🎉
 
-   > **✨ Note:** it sometimes takes a few minutes before the changes become
-   > live on the website.
+   > **✨ Note:** it takes a few minutes before the changes are live on the
+   > website.
 
 After your Pull Request has been merged, you can update your local repository's
 `main` branch with the newly added commits.
